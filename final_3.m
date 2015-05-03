@@ -9,7 +9,7 @@ end
 function [tg,fg] = getSEIR(s_0,e_0,i_0,r_0,beta,delta,epsilon,gamma,maxTime)
 
 	function ff = odeSEIR(s,e,i,r,beta,delta,epsilon,gamma,t)
-		ff = [-delta];
+		ff = [-delta*s-beta*s*i+delta ; -(delta+epsilon)*e+beta*s*i ; -(delta+gamma)*i+epsilon*e ; gamma*i - delta * r];
 	end
 	seir_0 = [s_0 e_0 i_0 r_0];
 
@@ -26,10 +26,36 @@ epsilonA = 0.9425
 gammaA = 0.9455
 R0A = rzero(betaA,deltaA,epsilonA,gammaA)
 
+
+
 betaB = 0.6049
 deltaB = 0.1497
 epsilonB = 0.6151
 gammaB = 0.1895
 R0B = rzero(betaB,deltaB,epsilonB,gammaB)
+
+%get initial conditions
+function init = initialSEIR
+%pick random s
+s =  rand;
+range = 1-s;
+e = range*rand;
+range = range - e;
+i = range*rand;
+r = 1 - (s + e + i);
+
+init = [s e i r];
+end
+
+init = initialSEIR;
+[tA,seirA] = getSEIR(init(1),init(2),init(3),init(4),betaA,deltaA,epsilonA,gammaA,200);
+seirA
+[tB,seirB] = getSEIR(init(1),init(2),init(3),init(4),betaB,deltaB,epsilonB,gammaB,200);
+seirB
+initialSEIR
+
+%Jacobian
+
+
 
 end

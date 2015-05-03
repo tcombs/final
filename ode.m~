@@ -1,4 +1,0 @@
-%ODE45 Helper
-function x_dot = ode(t,x,L)
-x_dot = -L*x;
-endfunc

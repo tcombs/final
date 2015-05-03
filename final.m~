@@ -1,9 +1,0 @@
-%%%%%%% 1 %%%%%%%%%
-function f = final
-
-function g = B(v)
-g = v^2
-end
-
-B(5)
-end
