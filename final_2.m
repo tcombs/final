@@ -4,18 +4,18 @@ function f = final_2
 
 function [tg,fg] = getSIR(s_0,i_0,r_0,alpha,beta,lambda,maxTime)
 
-function ff = odeSIR(s,i,r,alpha,beta,lambda,t)
-ff = [lambda - lambda*s - beta*s*i ;beta*s*i - alpha*i - lambda*i ; alpha*i - lambda*r];
-end
+    function ff = odeSIR(s,i,r,alpha,beta,lambda,t)
+        ff = [lambda - lambda*s - beta*s*i ;beta*s*i - alpha*i - lambda*i ; alpha*i - lambda*r];
+    end
 
-sir_0 = [s_0 i_0 r_0];
+    sir_0 = [s_0 i_0 r_0];
 
 
-[t,sir] = ode45(@(t,sir) odeSIR(sir(1),sir(2),sir(3),alpha,beta,t),[0,maxTime],sir_0);
+    [t,sir] = ode45(@(t,sir) odeSIR(sir(1),sir(2),sir(3),alpha,beta,lambda,t),[0,maxTime],sir_0);
 
-%return sir
-fg = sir;
-tg = t;
+    %return sir
+    fg = sir;
+    tg = t;
 end
 
 function fh = plotSirVsTime(sir,t,id)
@@ -73,22 +73,27 @@ end
     init2 = initialSIR
     [t2,sir2] = getSIR(init2(1),init2(2),init2(3),1/3,1.05,1/60,200);
     plotSvsI(sir2,'2');
+    plotSirVsTime(sir2,t2,'2');
 
     init3 = initialSIR
     [t3,sir3] = getSIR(init3(1),init3(2),init3(3),1/3,1.05,1/60,200);
     plotSvsI(sir3,'3');
+    plotSirVsTime(sir3,t3,'3');
 
     init4 = initialSIR
     [t4,sir4] = getSIR(init4(1),init4(2),init4(3),1/3,1.05,1/60,200);
     plotSvsI(sir4,'4');
+    plotSirVsTime(sir4,t4,'4');
 
     init5 = initialSIR
     [t5,sir5] = getSIR(init5(1),init5(2),init5(3),1/3,1.05,1/60,200);
     plotSvsI(sir5,'5');
+    plotSirVsTime(sir5,t5,'5');
 
     init6 = initialSIR
     [t6,sir6] = getSIR(init6(1),init6(2),init6(3),0.1,0.3,3,200);
     plotSvsI(sir6,'6');
+    plotSirVsTime(sir6,t6,'6');
 
 
 %plot all on one graph.

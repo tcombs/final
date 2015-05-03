@@ -93,22 +93,27 @@ init = initialSIR;
 	init2 = initialSIR
     [ta2,sir2a] = getSIR(init2(1),init2(2),init2(3),0.1,0.3,3,200);
     plotSvsI(sir2a,'2A');
+    plotSirVsTime(sir2a,ta2,'2A');
 
     init3 = initialSIR
     [ta3,sir3a] = getSIR(init3(1),init3(2),init3(3),0.1,0.3,3,200);
     plotSvsI(sir3a,'3A');
+    plotSirVsTime(sir3a,ta3,'3A');
 
     init4 = initialSIR
     [ta4,sir4a] = getSIR(init4(1),init4(2),init4(3),0.1,0.3,3,200);
     plotSvsI(sir4a,'4A');
+    plotSirVsTime(sir4a,ta4,'4A');
 
     init5 = initialSIR
     [ta5,sir5a] = getSIR(init5(1),init5(2),init5(3),0.1,0.3,3,200);
     plotSvsI(sir5a,'5A');
+    plotSirVsTime(sir5a,ta5,'5A');
 
     init6 = initialSIR
     [ta6,sir6a] = getSIR(init6(1),init6(2),init6(3),0.1,0.3,3,200);
     plotSvsI(sir6a,'6A');
+    plotSirVsTime(sir6a,ta6,'6A');
 
     %B
     %[tb,sirb] = getSIR(init(1),init(2),init(3),0.1,0.3/4,.75,1000);
@@ -117,20 +122,25 @@ init = initialSIR;
     %allSIRSB = [allSIRSB;sirb];
 
 
-    [ta2,sir2b] = getSIR(init2(1),init2(2),init2(3),0.1,0.3/4,.75,1000);
+    [tb2,sir2b] = getSIR(init2(1),init2(2),init2(3),0.1,0.3/4,.75,1000);
     plotSvsI(sir2b,'2b');
+    plotSirVsTime(sir2b,tb2,'2B');
 
-    [ta3,sir3b] = getSIR(init3(1),init3(2),init3(3),0.1,0.3/4,.75,1000);
+    [tb3,sir3b] = getSIR(init3(1),init3(2),init3(3),0.1,0.3/4,.75,1000);
     plotSvsI(sir3b,'3b');
+    plotSirVsTime(sir3b,tb3,'3B');
 
-    [ta4,sir4b] = getSIR(init4(1),init4(2),init4(3),0.1,0.3/4,.75,1000);
+    [tb4,sir4b] = getSIR(init4(1),init4(2),init4(3),0.1,0.3/4,.75,1000);
     plotSvsI(sir4b,'4b');
+    plotSirVsTime(sir4b,tb4,'4B');
 
-    [ta5,sir5b] = getSIR(init5(1),init5(2),init5(3),0.1,0.3/4,.75,1000);
+    [tb5,sir5b] = getSIR(init5(1),init5(2),init5(3),0.1,0.3/4,.75,1000);
     plotSvsI(sir5b,'5b');
+    plotSirVsTime(sir5b,tb5,'5B');
 
-    [ta6,sir6b] = getSIR(init6(1),init6(2),init6(3),0.1,0.3/4,.75,1000);
+    [tb6,sir6b] = getSIR(init6(1),init6(2),init6(3),0.1,0.3/4,.75,1000);
     plotSvsI(sir6b,'6b');
+    plotSirVsTime(sir6b,tb6,'6B');
 
 
 %plot all in one graph
