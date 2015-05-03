@@ -1,5 +1,5 @@
 %%%%%%% 2 %%%%%%%%%
-function f = final_2
+function f = final_3
 
 
 function [tg,fg] = getSIR(s_0,i_0,r_0,alpha,beta,lambda,maxTime)
