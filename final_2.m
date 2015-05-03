@@ -38,12 +38,12 @@ end
 
 %1 
 [t1,sir1] = getSIR(0.999,0.001,0.0,1/3,1.05,1/60,200);
-sir1(2:2,:)
 plotSirVsTime(sir1,t1,'1');
 
 %2 
 plotSvsI(sir1,'1');
 
+%3
 %Jacobian function
 function jac = jacobian(s,i,r,alpha,beta,lambda)
 jac = [-lambda-beta*i -beta*s 0;
@@ -52,7 +52,11 @@ jac = [-lambda-beta*i -beta*s 0;
 end
 
 %reach equalibrium
-[t3,sir3] = getSIR(0.999,0.001,0.0,1/3,1.05,1/60,1000);
+[t3,equalibrium] = getSIR(0.999,0.001,0.0,1/3,1.05,1/60,1000);
+jacob = jacobian(equalibrium(1),equalibrium(2),equalibrium(3),1/3,1.05,1/60)
+evs = eig(jacob)
+
+%4
 
 
 end
