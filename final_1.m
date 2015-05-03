@@ -87,29 +87,72 @@ init = initialSIR;
 
 
 
-%a, b Figure out the sir models
-for n = 2:6
+%a, b Figure out the sir models 5 more times
+
 	%A
-	init = initialSIR
-    [ta,sira] = getSIR(init(1),init(2),init(3),0.1,0.3,3,200);
-    plotSirVsTime(sira,ta,strcat(int2str(n),'A'));
-    plotSvsI(sira,strcat(int2str(n),'A'));
-    n
-    size(sira)
-    allSIRSA(:,:,n) = sira
+	init2 = initialSIR
+    [ta2,sir2a] = getSIR(init2(1),init2(2),init2(3),0.1,0.3,3,200);
+    plotSvsI(sir2a,'2A');
+
+    init3 = initialSIR
+    [ta3,sir3a] = getSIR(init3(1),init3(2),init3(3),0.1,0.3,3,200);
+    plotSvsI(sir3a,'3A');
+
+    init4 = initialSIR
+    [ta4,sir4a] = getSIR(init4(1),init4(2),init4(3),0.1,0.3,3,200);
+    plotSvsI(sir4a,'4A');
+
+    init5 = initialSIR
+    [ta5,sir5a] = getSIR(init5(1),init5(2),init5(3),0.1,0.3,3,200);
+    plotSvsI(sir5a,'5A');
+
+    init6 = initialSIR
+    [ta6,sir6a] = getSIR(init6(1),init6(2),init6(3),0.1,0.3,3,200);
+    plotSvsI(sir6a,'6A');
 
     %B
-    [tb,sirb] = getSIR(init(1),init(2),init(3),0.1,0.3/4,.75,1000);
-    plotSirVsTime(sirb,tb,strcat(int2str(n),'B'));
-    plotSvsI(sirb,strcat(int2str(n),'B'));
-    allSIRSB = [allSIRSB;sirb];
-end
+    %[tb,sirb] = getSIR(init(1),init(2),init(3),0.1,0.3/4,.75,1000);
+    %plotSirVsTime(sirb,tb,strcat(int2str(n),'B'));
+    %plotSvsI(sirb,strcat(int2str(n),'B'));
+    %allSIRSB = [allSIRSB;sirb];
 
-%plot all on one graph.
+
+    [ta2,sir2b] = getSIR(init2(1),init2(2),init2(3),0.1,0.3/4,.75,1000);
+    plotSvsI(sir2b,'2b');
+
+    [ta3,sir3b] = getSIR(init3(1),init3(2),init3(3),0.1,0.3/4,.75,1000);
+    plotSvsI(sir3b,'3b');
+
+    [ta4,sir4b] = getSIR(init4(1),init4(2),init4(3),0.1,0.3/4,.75,1000);
+    plotSvsI(sir4b,'4b');
+
+    [ta5,sir5b] = getSIR(init5(1),init5(2),init5(3),0.1,0.3/4,.75,1000);
+    plotSvsI(sir5b,'5b');
+
+    [ta6,sir6b] = getSIR(init6(1),init6(2),init6(3),0.1,0.3/4,.75,1000);
+    plotSvsI(sir6b,'6b');
+
+
+%plot all in one graph
 
  
 
+fig2 = figure;
+plot(sir1a(:,1:1),sir1a(:,2:2),sir2a(:,1:1),sir2a(:,2:2),sir3a(:,1:1),sir3a(:,2:2),sir4a(:,1:1),sir4a(:,2:2),sir5a(:,1:1),sir5a(:,2:2),sir6a(:,1:1),sir6a(:,2:2));
+legend('Start point 1','Start point 2','Start point 3','Start point 4','Start point 5','Start point 6');
+title('S vs I ALL A');
+xlabel('s(t)');
+ylabel('i(t)');
+saveas(fig2,'SvI_All_A', 'png');
 
+
+fig3 = figure;
+plot(sir1b(:,1:1),sir1b(:,2:2),sir2b(:,1:1),sir2b(:,2:2),sir3b(:,1:1),sir3b(:,2:2),sir4b(:,1:1),sir4b(:,2:2),sir5b(:,1:1),sir5b(:,2:2),sir6b(:,1:1),sir6b(:,2:2));
+legend('Start point 1','Start point 2','Start point 3','Start point 4','Start point 5','Start point 6');
+title('S vs I ALL B');
+xlabel('s(t)');
+ylabel('i(t)');
+saveas(fig3,'SvI_All_B', 'png');
 
 
 end
